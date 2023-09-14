@@ -40,6 +40,24 @@ class Post(db.Model):
     def friendly_date(self):
         return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
     
+class Posttag(db.Model):
+    """Post Tag"""
+
+    __tablename__ = "post_tag"
+
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'),primary_key = True, nullable = False)
+    tag_id  = db.Column(db.Integer,db.ForeignKey('tags.id'), primary_key = True, nullable = False)    
+
+class Tag(db.Model):
+    """Tags added to the posts"""
+
+    __tablename__ ="tags"
+    id = db.Column(db.Intger, primary_key = False)
+    name = db.Column(db.String(50), nullable = False, unique = True)
+
+    posts = db.relationship('Post', secondary = "post_tag", cascade = "all,delete", backref = "tags")
+
+    
 def connect_db(app):
     """Connects database to Flask"""
     

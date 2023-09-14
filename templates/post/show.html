@@ -10,9 +10,9 @@
     </i></p>
 
 <form>
-    <button class="btn btn-outline-primary" formmethod="get" formaction="/templates/users/{{ post.user.id}}">Cancel</button>
-    <button class="btn btn-primary" formmethod="get" formaction="/templates/post/{{ post.id }}/edit"> Edit</button>
-    <button class="btn btn-danger" formmethod="post" formaction="/templates/post/{{ post.id }}/delete">Delete</button>
+    <button class="btn btn-outline-primary" formmethod="get" formaction="/templates/users/{{ post.user_id}}">Cancel</button>
+    <button class="btn btn-primary" formmethod="get" formaction="/templates/post/{{ post_id }}/edit"> Edit</button>
+    <button class="btn btn-danger" formmethod="post" formaction="/templates/post/{{ post_id }}/delete">Delete</button>
 </form>
 
 {% endblock %} 
